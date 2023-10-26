@@ -34,6 +34,7 @@ docentes = [
 # Creamos una lista de alumnos
 alumnos = [
     crear_alumno("VicDick", "20045136", "9IRICA"),
+    crear_alumno("Noe Cardona", "20045148", "9IRICA"),
 ]
 
 
