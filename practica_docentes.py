@@ -2,12 +2,20 @@ import yaml
 import json
 import xml.etree.ElementTree as ET
 
-
 # Definimos una función para crear un objeto docente
 def crear_docente(nombre, numero_empleado, especialidad):
+
     return {
         "nombre": nombre,
         "numero_empleado": numero_empleado,
+        "especialidad": especialidad
+    }
+# Definimos la funcion para crear un objeto de alumno
+def crear_alumno(nombre, matricula, especialidad):
+
+    return {
+        "nombre": nombre,
+        "matricula": matricula,
         "especialidad": especialidad
     }
 
@@ -21,17 +29,23 @@ docentes = [
     crear_docente("Geltrudis pilar", 10028, "Ingles"),
     crear_docente("Roberto Perez", 10029, "Tutorias"),
     crear_docente("Adriana", 10030, "Equipos de alto rendimiento"),
-
 ]
+
+# Creamos una lista de alumnos
+alumnos = [
+    crear_alumno("VicDick", "20045136", "9IRICA"),
+]
+
+
 # Serializamos los datos en YAML
-yaml_data = yaml.dump(docentes, default_flow_style=False)
+yaml_data = yaml.dump(docentes + alumnos, default_flow_style=False)
 
 # Serializamos los datos en JSON
-json_data = json.dumps(docentes)
+json_data = json.dumps(docentes + alumnos)
 
 # Serializamos los datos en XML
 xml_data = ET.tostring(
-    ET.Element("docentes", attrib={"total": str((docentes))}),
+    ET.Element("docentes y alumnos", attrib={"total": str((docentes + alumnos))}),
     encoding="utf-8"
 )
 
